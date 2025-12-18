@@ -1,0 +1,152 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(
+        180deg,
+        #0b3d2e 0%,
+        #165b33 40%,
+        #b11226 100%
+    );
+    overflow: hidden;
+    font-family: "Segoe UI", sans-serif;
+}
+
+.snow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background-image:
+        radial-gradient(2px 2px at 20px 30px, white, transparent),
+        radial-gradient(3px 3px at 100px 150px, white, transparent),
+        radial-gradient(2px 2px at 200px 80px, white, transparent),
+        radial-gradient(4px 4px at 300px 200px, white, transparent),
+        radial-gradient(2px 2px at 400px 50px, white, transparent);
+    background-size: 500px 500px;
+    animation: snowFall 15s linear infinite;
+    opacity: 0.8;
+}
+
+.snow::after {
+    content: "";
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: inherit;
+    background-size: inherit;
+    animation: snowFall 25s linear infinite;
+    opacity: 0.5;
+}
+
+@keyframes snowFall {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(100%);
+    }
+}
+
+.christmas-lights {
+    position: fixed;
+    top: 0;
+    width: 120%;
+    height: 40px;
+    background: repeating-linear-gradient(
+        90deg,
+        red 0 20px,
+        green 20px 40px,
+        gold 40px 60px,
+        blue 60px 80px
+    );
+    filter: blur(6px);
+    opacity: 0.7;
+    animation: lightsGlow 2s infinite alternate;
+}
+
+.mainTitle {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+}
+
+.gift-btn {
+    position: relative;
+    padding: 16px 36px;
+    border: none;
+    border-radius: 12px;
+    background: #c1121f; /* gift base color */
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    overflow: hidden;
+
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+    transition: transform 0.2s ease;
+}
+
+/* Label stays above everything */
+.gift-btn .label {
+    position: relative;
+    z-index: 2;
+}
+
+/* Wrapping layer */
+.gift-btn .wrap {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            45deg,
+            #e63946 25%,
+            #ffffff 25% 35%,
+            #e63946 35% 60%,
+            #ffffff 60% 70%,
+            #e63946 70%
+        );
+    z-index: 1;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+/* Hover: unwrap effect */
+.gift-btn:hover .wrap {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+/* Slight lift on hover */
+.gift-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* Pressed effect */
+.gift-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+}
+
+
+.mainTitle-child {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 600;
+    font-family: "Segoe UI", Arial, sans-serif;
+    text-align: center;
+    letter-spacing: 1px;
+    line-height: 1.4;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+@keyframes lightsGlow {
+    from {
+        opacity: 0.5;
+    }
+    to {
+        opacity: 0.9;
+    }
+}

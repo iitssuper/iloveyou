@@ -1,0 +1,150 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(
+        180deg,
+        #0b3d2e 0%,
+        #165b33 40%,
+        #b11226 100%
+    );
+    overflow: hidden;
+    font-family: "Segoe UI", sans-serif;
+}
+
+.snow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background-image:
+        radial-gradient(2px 2px at 20px 30px, white, transparent),
+        radial-gradient(3px 3px at 100px 150px, white, transparent),
+        radial-gradient(2px 2px at 200px 80px, white, transparent),
+        radial-gradient(4px 4px at 300px 200px, white, transparent),
+        radial-gradient(2px 2px at 400px 50px, white, transparent);
+    background-size: 500px 500px;
+    animation: snowFall 15s linear infinite;
+    opacity: 0.8;
+}
+
+.snow::after {
+    content: "";
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: inherit;
+    background-size: inherit;
+    animation: snowFall 25s linear infinite;
+    opacity: 0.5;
+}
+
+@keyframes snowFall {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(100%);
+    }
+}
+
+.christmas-lights {
+    position: fixed;
+    top: 0;
+    width: 120%;
+    height: 40px;
+    background: repeating-linear-gradient(
+        90deg,
+        red 0 20px,
+        green 20px 40px,
+        gold 40px 60px,
+        blue 60px 80px
+    );
+    filter: blur(6px);
+    opacity: 0.7;
+    animation: lightsGlow 2s infinite alternate;
+}
+
+.mainTitle {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+}
+
+.mainTitle-child {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 600;
+    font-family: "Segoe UI", Arial, sans-serif;
+    text-align: center;
+    letter-spacing: 1px;
+    line-height: 1.4;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+@keyframes lightsGlow {
+    from {
+        opacity: 0.5;
+    }
+    to {
+        opacity: 0.9;
+    }
+}
+
+#heartBtn {
+    top: 20px;
+    left: 20px;
+    z-index: 10;
+
+    padding: 14px 32px;
+    font-size: 18px;
+    font-weight: 600;
+    border: none;
+    border-radius: 14px;
+
+    background: linear-gradient(135deg, #ff4d6d, #ff758f);
+    color: white;
+    cursor: pointer;
+
+    box-shadow: 0 8px 20px rgba(255, 77, 109, 0.45);
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        filter 0.2s ease;
+}
+
+#heartBtn:hover {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 12px 28px rgba(255, 77, 109, 0.65);
+    filter: brightness(1.1);
+}
+
+/* Click: press down */
+#heartBtn:active {
+    transform: translateY(1px) scale(0.98);
+    box-shadow: 0 5px 12px rgba(255, 77, 109, 0.4);
+}
+
+/* Heart style */
+.heart {
+    position: fixed;
+    font-size: 22px;
+    pointer-events: none;
+    animation: floatUp 2s ease-out forwards;
+}
+
+/* Animation */
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-150px) scale(1.6);
+        opacity: 0;
+    }
+}
+
